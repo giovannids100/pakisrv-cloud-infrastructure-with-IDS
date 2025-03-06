@@ -1,0 +1,4 @@
+OpenWRT-conf/uhttpd.crt
+OpenWRT-conf/uhttpd.key
+OpenWRT-conf/passwd
+OpenWRT-conf/cloudflared/cert.pem

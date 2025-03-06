@@ -1,0 +1,77 @@
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: enxa0cec8ed0510: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr0 state UP group default qlen 1000
+    link/ether a0:ce:c8:ed:05:10 brd ff:ff:ff:ff:ff:ff
+3: wlp1s0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether fc:77:74:40:51:5f brd ff:ff:ff:ff:ff:ff
+4: vmbr0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether a0:ce:c8:ed:05:10 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.101/24 scope global vmbr0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a2ce:c8ff:feed:510/64 scope link 
+       valid_lft forever preferred_lft forever
+5: vmbr1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 2e:96:ea:a7:b2:87 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.1/24 scope global vmbr1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::2856:68ff:fe44:3f74/64 scope link 
+       valid_lft forever preferred_lft forever
+6: vmbr2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether d6:4f:2f:9b:5d:ef brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.2/24 scope global vmbr2
+       valid_lft forever preferred_lft forever
+    inet6 fe80::189d:91ff:fe2f:37bf/64 scope link 
+       valid_lft forever preferred_lft forever
+7: vmbr3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 3e:3e:ba:75:5c:87 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.3/24 scope global vmbr3
+       valid_lft forever preferred_lft forever
+    inet6 fe80::bc44:d2ff:fe37:e64e/64 scope link 
+       valid_lft forever preferred_lft forever
+8: veth100i0@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master vmbr0 state UP group default qlen 1000
+    link/ether fe:11:5d:23:56:a3 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+9: veth101i0@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master vmbr0 state UP group default qlen 1000
+    link/ether fe:e8:7f:6b:ec:a1 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+10: tap102i0: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr1 state UNKNOWN group default qlen 1000
+    link/ether 2e:96:ea:a7:b2:87 brd ff:ff:ff:ff:ff:ff
+11: tap102i1: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr0 state UNKNOWN group default qlen 1000
+    link/ether 46:ab:0a:c9:4b:70 brd ff:ff:ff:ff:ff:ff
+12: tap102i2: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr2 state UNKNOWN group default qlen 1000
+    link/ether d6:4f:2f:9b:5d:ef brd ff:ff:ff:ff:ff:ff
+13: tap102i3: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr3 state UNKNOWN group default qlen 1000
+    link/ether 3e:3e:ba:75:5c:87 brd ff:ff:ff:ff:ff:ff
+18: tap202i0: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master fwbr202i0 state UNKNOWN group default qlen 1000
+    link/ether 5e:84:df:6f:81:d8 brd ff:ff:ff:ff:ff:ff
+19: fwbr202i0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether f2:16:1a:11:f7:0e brd ff:ff:ff:ff:ff:ff
+20: fwpr202p0@fwln202i0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master vmbr1 state UP group default qlen 1000
+    link/ether d6:db:97:ea:67:d5 brd ff:ff:ff:ff:ff:ff
+21: fwln202i0@fwpr202p0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master fwbr202i0 state UP group default qlen 1000
+    link/ether f2:16:1a:11:f7:0e brd ff:ff:ff:ff:ff:ff
+26: tap300i0: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master fwbr300i0 state UNKNOWN group default qlen 1000
+    link/ether c6:a9:bc:24:95:78 brd ff:ff:ff:ff:ff:ff
+27: fwbr300i0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether f2:87:d1:16:32:91 brd ff:ff:ff:ff:ff:ff
+28: fwpr300p0@fwln300i0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master vmbr3 state UP group default qlen 1000
+    link/ether 3a:7d:be:27:9d:5b brd ff:ff:ff:ff:ff:ff
+29: fwln300i0@fwpr300p0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master fwbr300i0 state UP group default qlen 1000
+    link/ether f2:87:d1:16:32:91 brd ff:ff:ff:ff:ff:ff
+30: tap300i1: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr0 state UNKNOWN group default qlen 1000
+    link/ether b2:bc:be:f7:eb:2c brd ff:ff:ff:ff:ff:ff
+31: tap210i0: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master fwbr210i0 state UNKNOWN group default qlen 1000
+    link/ether 5a:ea:9d:5c:59:e2 brd ff:ff:ff:ff:ff:ff
+32: fwbr210i0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 4e:18:7b:79:61:6d brd ff:ff:ff:ff:ff:ff
+33: fwpr210p0@fwln210i0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master vmbr2 state UP group default qlen 1000
+    link/ether 7e:dd:07:15:bd:0e brd ff:ff:ff:ff:ff:ff
+34: fwln210i0@fwpr210p0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master fwbr210i0 state UP group default qlen 1000
+    link/ether 4e:18:7b:79:61:6d brd ff:ff:ff:ff:ff:ff
+default via 192.168.1.1 dev vmbr0 proto kernel onlink 
+10.0.0.0/24 dev vmbr1 proto kernel scope link src 10.0.0.1 
+10.0.0.0/24 dev vmbr2 proto kernel scope link src 10.0.0.2 
+10.0.0.0/24 dev vmbr3 proto kernel scope link src 10.0.0.3 
+192.168.1.0/24 dev vmbr0 proto kernel scope link src 192.168.1.101 

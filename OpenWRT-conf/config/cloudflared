@@ -1,0 +1,11 @@
+
+config cloudflared 'config'
+	option enabled '1'
+	option config '/etc/cloudflared/config.yml'
+	option origincert '/etc/cloudflared/cert.pem'
+	option protocol 'http2'
+	option loglevel 'info'
+	option logfile '/var/log/cloudflared.log'
+	option token 'eyJhIjoiNjcxZGQ0NTc5ZTkwZGUwOTc1YjUyNTQwMDg2NThjZWEiLCJ0IjoiMzVkMDc4N2YtZGJiNy00ZjYwLTliYTctNjU0MDczMjFiY2FkIiwicyI6IllXRXdNRFJqWlRNdE1HUTVOQzAwTlRrNUxXRmhZemt0T1RJMFlqSXhZakJtTXpKaCJ9'
+	option region 'us'
+

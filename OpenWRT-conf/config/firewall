@@ -1,0 +1,121 @@
+
+config defaults
+	option input 'REJECT'
+	option output 'ACCEPT'
+	option forward 'REJECT'
+	option synflood_protect '1'
+
+config zone
+	option name 'lan'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	list network 'lan'
+
+config zone
+	option name 'wan'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	option mtu_fix '1'
+	list network 'wan'
+	option masq '1'
+
+config forwarding
+	option src 'lan'
+	option dest 'wan'
+
+config zone
+	option name 'lan2'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	list network 'lan2'
+
+config forwarding
+	option src 'lan2'
+	option dest 'wan'
+
+config rule
+	option dest '*'
+	option target 'DROP'
+	option name 'drop tcp'
+	list proto 'tcp'
+	option src '*'
+	option enabled '0'
+
+config rule
+	option name 'SSH allow'
+	list proto 'tcp'
+	option src 'wan'
+	option target 'ACCEPT'
+	option dest_port '22'
+
+config rule
+	list proto 'tcp'
+	option src '*'
+	option dest 'lan2'
+	option dest_port '443'
+	option target 'ACCEPT'
+	option name 'allow HTTPS lan2'
+	option enabled '0'
+
+config zone
+	option name 'wazone'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	list network 'wazuhlan'
+
+config forwarding
+	option src 'wazone'
+	option dest 'lan'
+
+config forwarding
+	option src 'wazone'
+	option dest 'lan2'
+
+config forwarding
+	option src 'wazone'
+	option dest 'wan'
+
+config forwarding
+	option src 'lan'
+	option dest 'wazone'
+
+config forwarding
+	option src 'lan2'
+	option dest 'wazone'
+
+config forwarding
+	option src 'wan'
+	option dest 'wazone'
+
+config forwarding
+	option src 'wan'
+	option dest 'lan'
+
+config forwarding
+	option src 'wan'
+	option dest 'lan2'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option src_dport '443'
+	option dest_port '443'
+	option enabled '0'
+
+config rule
+	option name 'wazuh-agent-lan'
+	list proto 'tcp'
+	option src 'wazone'
+	list src_ip '10.0.255.247'
+	option src_port '1514-1515'
+	option dest 'lan'
+	list dest_ip '10.0.1.233'
+	list dest_ip '10.0.1.245'
+	option dest_port '1514-1515'
+	option target 'ACCEPT'
+	option enabled '0'
+
