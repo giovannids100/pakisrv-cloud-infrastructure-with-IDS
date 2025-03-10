@@ -1,0 +1,18 @@
+#cloud-config
+{
+users:
+  - name: user
+    ssh-authorized-keys:
+      - #paste your ssh pubkeys here
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+package_upgrade: true
+package_reboot_if_required: true
+runcmd:
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - sed -i -e '$aAllowUsers user' /etc/ssh/sshd_config
+  - systemctl restart ssh
+  #wazuh agent deployment [to edit]
+  - wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.11.0-1_amd64.deb && sudo WAZUH_MANAGER='your-wazuh-server-ip' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='your-wazuh-agent-name' dpkg -i ./wazuh-agent_4.11.0-1_amd64.deb
+}
