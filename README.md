@@ -175,8 +175,8 @@ Qui è riportata la regola che permette l'invio di **Alert tramite e-mail** sfru
     <logall_json>no</logall_json>
     <email_notification>yes</email_notification>
     <smtp_server>192.168.1.103</smtp_server>
-    <email_from>alert@pakisrv.com</email_from>
-    <email_to>project.client.pakisrv@gmail.com</email_to>
+    <email_from>alert@server.com</email_from>
+    <email_to>project.client.server@gmail.com</email_to>
     <email_maxperhour>12</email_maxperhour>
     <email_log_source>alerts.log</email_log_source>
     <agents_disconnection_time>10m</agents_disconnection_time>
